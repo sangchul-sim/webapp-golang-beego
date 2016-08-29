@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebApp / Go / Beego</title>
+    <style>
+        @import url(//fonts.googleapis.com/css?family=Lato:700);
+
+        body {
+            margin:0;
+            font-family:'Lato', sans-serif;
+            text-align:center;
+            color: #999;
+        }
+
+        .status-code {
+            font-size:130px;
+            font-family: inherit;
+            font-weight: 100;
+            line-height: 1.1;
+            color: inherit;
+        }
+
+        .message {
+            font-size:30px;
+            font-family: inherit;
+            font-weight: 100;
+            line-height: 1.1;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+<div class="">
+    <div class="status-code">{# .StatusCode #}</div>
+    {# if .AppCode #}
+    <div class="message">({# .AppCode #})</div>
+    {# end #}
+    <div class="message">{# .StatusText #}</div>
+</div>
+</body>
+</html>
