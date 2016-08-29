@@ -20,4 +20,12 @@ func init() {
 	beego.Router("/api/deal/list",
 		&controllers.APIController{},
 		"get:DealList")
+
+	beego.Router("/chat/home",
+		&controllers.ChatController{},
+		"get:Home")
+
+	beego.Router("/chat/ws",
+		&controllers.ChatController{},
+		"get:Ws")
 }

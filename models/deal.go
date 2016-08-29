@@ -1,7 +1,7 @@
 package models
 
 import (
-	_mysql "beego-opengov/models/mysql"
+	_mysql "github.com/sangchul-sim/webapp-golang-beego/models/mysql"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"

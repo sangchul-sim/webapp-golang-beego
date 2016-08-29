@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Go Websocket Chat Demo</title>
+    <!-- <link href="/static/css/chat/bootstrap.min.css" rel="stylesheet" media="screen"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="/static/css/chat/application.css" rel="stylesheet" media="screen">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="container">
+      <form id="input-form" class="form-inline">
+        <input id="input-handle" type="hidden" value="room.message" />
+        <div class="form-group">
+          <select id="input-room" class="form-control">
+            <option value="room1">1번방</option>
+            <option value="room2">2번방</option>
+            <option value="room3">3번방</option>
+            <option value="room4">4번방</option>
+            <option value="room5">5번방</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select id="input-user" class="form-control">
+            <option value="user1">1번유저</option>
+            <option value="user2">2번유저</option>
+            <option value="user3">3번유저</option>
+            <option value="user4">4번유저</option>
+            <option value="user5">5번유저</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input id="input-text" type="text" class="form-control" placeholder="Enter chat text here!" autofocus />
+        </div>
+        <button class="btn btn-primary" type="submit">Send</button>
+      </form>
+
+      <button type="button" class="btn btn-default" onclick="systemMessage();">System Message</button>
+
+      <div class="page-header">
+        <h1>Chat Log</h1>
+      </div>
+      <div id="chat-text">
+      </div>
+    </div>
+
+    <script type="text/javascript" src="/static/js/chat/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="/static/js/chat/reconnecting-websocket.min.js"></script>
+    <script type="text/javascript" src="/static/js/chat/application.js"></script>
+  </body>
+</html>
