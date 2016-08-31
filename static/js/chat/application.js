@@ -125,10 +125,6 @@ app.controller("ChatController", function($scope, $rootScope, $log, $http, $time
         $scope.sendMessage(handle, data);
     };
 
-    $scope.changeUser = function($event) {
-        $scope.focusMessage();
-    };
-
     $scope.focusMessage = function() {
         $("#input-message").focus();
     };

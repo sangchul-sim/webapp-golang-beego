@@ -14,7 +14,7 @@
 
     <body ng-app="app">
         <div class="container" ng-controller="ChatController">
-            <form id="input-form" class="form-inline">
+            <form id="input-form" class="form-inline" ui-keypress="{13:'roomMessage($event);'}">
                 <input ng-model="handle" id="input-handle" type="hidden" value="room.message" />
                 <div class="form-group">
                     <select class="form-control" id="room"
@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <input ng-model="message" id="input-message" type="text" class="form-control" placeholder="Enter chat text here!" autofocus />
                 </div>
-                <button class="btn btn-primary" type="button" ng-click="roomMessage($event);">Send</button>
+                <button class="btn btn-primary" type="submit" ng-click="roomMessage($event);">Send</button>
             </form>
 
             <button type="button" class="btn btn-default" ng-click="systemMessage($event);">System Message</button>
