@@ -50,7 +50,8 @@ var chat = {
 // 서버로부터 데이터 수신
 box.onmessage = function($event) {
     var data = JSON.parse($event.data);
-
+console.log("data");
+console.dir(data);
     if (data.hasOwnProperty("handle")) {
         if (data.handle == "system.message" || data.handle == "room.message") {
             if (data.handle == "room.message") {
@@ -61,6 +62,8 @@ box.onmessage = function($event) {
                     var user = chat.getUserInfo(data.user_id);
                     chat.appendMessage(user.name, data.message);
                 }
+            } else {
+                chat.appendMessage("system", data.message);
             }
         }
     }
