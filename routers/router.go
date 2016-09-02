@@ -8,10 +8,14 @@ import (
 func init() {
 	// beego.Router("/", &controllers.MainController{})
 
+	beego.Router("/visitor/health_check",
+		&controllers.MainController{},
+		"get:HealthCheck")
+
 	// Indicate ViewController.Main method to handle GET requests.
 	beego.Router("/beego",
 		&controllers.MainController{},
-		"get:Get")
+		"get:Beego")
 
 	beego.Router("/api/deal/:id([0-9]+)",
 		&controllers.APIController{},

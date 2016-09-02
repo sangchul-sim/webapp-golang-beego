@@ -30,19 +30,19 @@ func init() {
 	orm.RegisterModel(new(TbDealInfo))
 }
 
-func (deal *TbDealInfo) Deal(Id int64) (error, TbDealInfo) {
-	o := orm.NewOrm()
-	o.Using("default")
-	DealInfo := TbDealInfo{DealId: Id}
+// Raw SQL to query
+func (deal *TbDealInfo) Deal(Id int64) (error, *TbDealInfo) {
+	deal.DealId = Id
+	query := `SELECT * FROM tb_deal_info WHERE deal_id = ?`
 
-	err := o.Read(&DealInfo)
+	err := o.Raw(query, deal.DealId).QueryRow(&deal)
 	if err != nil {
-		return err, DealInfo
+		return err, deal
 	}
-
-	return nil, DealInfo
+	return nil, deal
 }
 
+// ORM to query
 func (research *TbDealInfo) DealList(Limit int, Offset int, SearchKeyword string) (error, int64, []TbDealInfo) {
 	o := orm.NewOrm()
 	o.Using("default")
@@ -59,6 +59,5 @@ func (research *TbDealInfo) DealList(Limit int, Offset int, SearchKeyword string
 	if listErr != nil {
 		return listErr, 0, nil
 	}
-
 	return nil, TotalCount, DealList
 }

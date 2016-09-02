@@ -28,9 +28,6 @@ func (c *APIController) Deal() {
 		return
 	}
 
-	// data := make(map[string]interface{})
-	// data["deal"] = &result
-
 	c.Data["json"] = &result
 	c.ServeJSON()
 }

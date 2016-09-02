@@ -8,12 +8,27 @@ import (
 )
 
 func main() {
+	// http://beego.me/docs/mvc/controller/config.md
+	//
+	// Enable Gzip or not, false by default.
+	// If Gzip is enabled, the output of template will be compressed by Gzip or zlib according to
 	beego.BConfig.EnableGzip = true
+
+	// Set a list of file extensions.
+	// Any static file with the extension in the list will support gzip compression.
+	// It supports .css and .js by default.
 	beego.BConfig.WebConfig.StaticExtensionsToGzip = []string{".css", ".js"}
 	beego.BConfig.WebConfig.TemplateLeft = "{#"
 	beego.BConfig.WebConfig.TemplateRight = "#}"
+
+	// Use auto render or not, true by default.
+	// Should set it to false for API application as there is no need to render templates.
 	beego.BConfig.WebConfig.AutoRender = false
+
+	// Output access logs or not. It won’t output access logs under prod mode by default.
 	beego.BConfig.Log.AccessLogs = true
+
+	// Whether to print line number or not. Default is true. This config is not supported in config file.
 	beego.BConfig.Log.FileLineNum = true
 
 	// access log
