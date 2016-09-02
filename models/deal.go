@@ -32,6 +32,9 @@ func init() {
 
 // Raw SQL to query
 func (deal *TbDealInfo) Deal(Id int64) (error, *TbDealInfo) {
+	o := orm.NewOrm()
+	o.Using("default")
+
 	deal.DealId = Id
 	query := `SELECT * FROM tb_deal_info WHERE deal_id = ?`
 
