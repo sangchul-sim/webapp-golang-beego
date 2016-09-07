@@ -48,4 +48,5 @@ func main() {
 	// beego.ErrorHandler("404", page_not_found)
 	beego.ErrorController(&controllers.ErrorController{})
 	beego.Run()
+
 }
