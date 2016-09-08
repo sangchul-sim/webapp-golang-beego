@@ -17,6 +17,10 @@ func init() {
 		&controllers.MainController{},
 		"get:Beego")
 
+	beego.Router("/beego_test",
+		&controllers.MainController{},
+		"get:Beego")
+
 	beego.Router("/api/deal/:id([0-9]+)",
 		&controllers.APIController{},
 		"get:Deal")
