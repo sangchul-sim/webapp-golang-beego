@@ -47,6 +47,11 @@ func main() {
 
 	// beego.ErrorHandler("404", page_not_found)
 	beego.ErrorController(&controllers.ErrorController{})
+
+	if beego.BConfig.RunMode == "dev" {
+		beego.BConfig.WebConfig.DirectoryIndex = true
+		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"
+	}
 	beego.Run()
 
 }

@@ -11,6 +11,12 @@ type APIController struct {
 	BaseController
 }
 
+// @Title Deal
+// @Description find object by id
+// @Param	Id		path 	string	true		"the DealID you want to get"
+// @Success 200 {object} models.TbDealInfo
+// @Failure 400 :id is empty
+// @router /:id [get]
 func (c *APIController) Deal() {
 	DealID := c.Ctx.Input.Param(":id")
 	IntDealID, err := strconv.ParseInt(DealID, 10, 64)
@@ -32,6 +38,11 @@ func (c *APIController) Deal() {
 	c.ServeJSON()
 }
 
+// @Title DealList
+// @Description get all deals
+// @Success 200 {object} models.TbDealInfo
+// @Failure 403 :DealId is empty
+// @router / [get]
 func (c *APIController) DealList() {
 	SearchKeyword := c.Input().Get("search_keyword")
 	Page := c.Input().Get("page")
