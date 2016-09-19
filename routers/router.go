@@ -6,11 +6,16 @@ import (
 )
 
 func init() {
+	beego.Router("/visitor/health_check",
+		&controllers.MainController{},
+		"get:HealthCheck")
+
+	//Indicate ViewController.Main method to handle GET requests.
+	beego.Router("/beego",
+		&controllers.MainController{},
+		"get:Beego")
+
 	ns := beego.NewNamespace("/v1",
-
-		beego.NSRouter("/visitor/health_check", &controllers.MainController{}, "get:HealthCheck"),
-		beego.NSRouter("/beego", &controllers.MainController{}, "get:Beego"),
-
 		beego.NSNamespace("/api/deal",
 			beego.NSInclude(
 				&controllers.APIController{},
