@@ -9,15 +9,17 @@ func init() {
 	ns := beego.NewNamespace("/v1",
 
 		beego.NSRouter("/visitor/health_check", &controllers.MainController{}, "get:HealthCheck"),
+		beego.NSRouter("/beego", &controllers.MainController{}, "get:Beego"),
 
-		//beego.NSNamespace("/visitor",
-		//	beego.NSInclude(
-		//		&controllers.MainController{},
-		//	),
-		//),
 		beego.NSNamespace("/api/deal",
 			beego.NSInclude(
 				&controllers.APIController{},
+			),
+		),
+
+		beego.NSNamespace("/chat",
+			beego.NSInclude(
+				&controllers.ChatController{},
 			),
 		),
 	)

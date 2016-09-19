@@ -24,7 +24,7 @@ var (
 	RedisSender   *redis_stream.RedisSender
 )
 
-// ChatController 는 /api 에 대한 controller 입니다.
+// /chat 에 대한 controller 입니다.
 type ChatController struct {
 	BaseController
 }
@@ -72,11 +72,19 @@ func init() {
 	}()
 }
 
+// @Title Chat home
+// @Description chatting home
+// @Success 200 html
+// @router /home [get]
 func (dis *ChatController) Home() {
 	dis.TplName = "chat/home.html"
 	dis.Render()
 }
 
+// @Title Chat ws
+// @Description websocket protocol
+// @Success 200
+// @router /ws [get]
 func (dis *ChatController) Ws() {
 	// https://godoc.org/github.com/gorilla/websocket
 	// The Conn type represents a WebSocket connection.

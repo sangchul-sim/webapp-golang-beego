@@ -3,7 +3,7 @@ if (!"WebSocket" in window) {
     alert("WebSocket NOT supported by your Browser!");
 }
 
-var host = location.protocol.replace("http", "ws") + "//" + location.host + "/chat/ws";
+var host = location.protocol.replace("http", "ws") + "//" + location.host + "/v1/chat/ws";
 var box = new ReconnectingWebSocket(host);
 var chat = {
     "appendMessage": function(handle, message) {
