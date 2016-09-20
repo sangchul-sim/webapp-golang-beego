@@ -11,7 +11,7 @@ type APIController struct {
 	BaseController
 }
 
-// @Title Deal
+// @Title Get
 // @Description find object by id
 // @Param	Id		path 	int64	true		"the DealID you want to get"
 // @Success 200 {object} models.TbDealInfo
@@ -38,7 +38,7 @@ func (c *APIController) Deal() {
 	c.ServeJSON()
 }
 
-// @Title DealList
+// @Title GetAll
 // @Description get all deals
 // @Success 200 {object} models.TbDealInfo
 // @Failure 400 딜리스트 정보가 존재하지 않습니다
